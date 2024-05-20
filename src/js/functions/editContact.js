@@ -1,7 +1,10 @@
+import { contacts, renderContactList, renderContact } from '../contactUtils';
+
 const editModal = document.getElementById("editModal");
 const editNameInput = document.getElementById("editName");
 const editPhoneInput = document.getElementById("editPhone");
 const saveEditedContactButton = document.getElementById("saveEditedContact");
+const closeEditModalButton = document.getElementById("closeEditModal");
 
 let selectedContactId;
 
@@ -15,7 +18,7 @@ function openEditModal(contactId) {
       editPhoneInput.value = contact.phone;
       editModal.style.display = "flex";
     } else {
-      console.log("No se encontró el contacto");
+      alert("No se encontró el contacto");
     }
   } catch (error) {
     console.error("Error al abrir modal de edición: " + error.message);
@@ -48,12 +51,9 @@ function saveEditedContact() {
         contacts[editedContactIndex].phone = editedPhone;
         renderContactList();
         closeEditModal();
-        console.log("Contacto editado correctamente.");
       }
     } else {
-      alert(
-        "Por favor, complete todos los campos o verifique los datos ingresados."
-      );
+      alert("No se encontró el contacto");
     }
   } catch (error) {
     console.error("Error editing contact:", error.message);
@@ -61,3 +61,6 @@ function saveEditedContact() {
 }
 
 saveEditedContactButton.addEventListener("click", saveEditedContact);
+closeEditModalButton.addEventListener("click", closeEditModal);
+
+export { openEditModal, closeEditModal, saveEditedContact };

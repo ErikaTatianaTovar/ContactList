@@ -1,3 +1,6 @@
+import { openEditModal } from './functions/editContact';
+import { openDeleteModal } from './functions/deleteContact';
+
 const contacts = [];
 
 function generateUniqueId() {
@@ -17,7 +20,7 @@ function renderContactList(filterContacts = contacts) {
     emptyMessage.id = "emptyMessage";
 
     const svgImage = document.createElement("img");
-    svgImage.src = "assets/icon-contacts.svg";
+    svgImage.src = "./assets/icon-contacts.svg";
     svgImage.alt = "Contacts";
     svgImage.classList.add("empty-image-style");
 
@@ -43,10 +46,10 @@ function renderContact(contact) {
         </div>
         <div class="contact-actions">
             <button class="button button-edit">
-            <img src="assets/icon-edit.svg" alt="Editar">
+            <img src="./assets/icon-edit.svg" alt="Editar">
             </button>
             <button class="button button-delete">
-            <img src="assets/icon-delete.svg" alt="Eliminar">
+            <img src="./assets/icon-delete.svg" alt="Eliminar">
             </button>
         </div>
     `;
@@ -58,7 +61,6 @@ function renderContact(contact) {
   const deleteButton = li.querySelector(".button-delete");
   deleteButton.addEventListener("click", () => {
     openDeleteModal(contact.id);
-    console.log("click en delete");
   });
   contactList.appendChild(li);
 }
@@ -75,3 +77,6 @@ function addContact(newContact) {
 
   renderContactList();
 }
+
+
+export { contacts, generateUniqueId, renderContactList, renderContact, addContact };

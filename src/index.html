@@ -13,18 +13,18 @@
     <div id="editModal" class="modal">
       <div class="modal-content">
         <h2>Editar Contacto</h2>
-        <button id="close" class="button" onclick="closeEditModal()">X</button>
-        <input type="text" id="editName" placeholder="Nombre" />
-        <input type="text" id="editPhone" placeholder="Teléfono" />
+        <button id="closeEditModal" class="button">X</button>
+        <input type="text" id="editName" class="modal-input" placeholder="Nombre" />
+        <input type="text" id="editPhone" class="modal-input" placeholder="Teléfono" />
         <button id="saveEditedContact" class="button">Guardar Cambios</button>
       </div>
     </div>
     <div id="addModal" class="modal">
       <div class="modal-content">
         <h2>Añadir nuevo contacto</h2>
-        <button id="close" class="button" onclick="closeAddModal()">X</button>
-        <input type="text" id="addName" placeholder="Nombre" />
-        <input type="text" id="addPhone" placeholder="Teléfono" />
+        <button id="closeAddModal" class="button">X</button>
+        <input type="text" id="addName" class="modal-input" placeholder="Nombre" />
+        <input type="text" id="addPhone" class="modal-input" placeholder="Teléfono" />
         <button id="saveNewContact" class="button">Guardar</button>
         <br />
       </div>
@@ -33,10 +33,10 @@
       <div class="modal-content">
         <h2>¿Desea eliminar este contacto?</h2>
         <div class="modal-buttons">
-          <button id="cancel" class="button" onclick="closeDeleteModal()">
+          <button id="cancelDeleteModal" class="button">
             Cancelar
           </button>
-          <button id="accept" class="button" onclick="deleteContact()">
+          <button id="acceptDeleteModal" class="button">
             Aceptar
           </button>
           <br />
@@ -45,19 +45,12 @@
     </div>
 
     <div class="contact-search">
-      <input id="searchContact" type="text" placeholder="Buscar Contacto" />
+      <input id="searchContact" class="search-input" type="text" placeholder="Buscar Contacto" />
       <button id="searchContactButton" class="button button-search">Buscar</button>
     </div>
     <ul class="contact-list"></ul>
     <div class="contact-actions">
       <button id="addContact" class="button button-add">Añadir Contacto</button>
     </div>
-    <script src="contactUtils.js"></script>
-    <script src="./functions/addContact.js"></script>
-    <script src="./functions/editContact.js"></script>
-    <script src="./functions/deleteContact.js"></script>
-    <script src="./functions/deleteContact.js"></script>
-    <script src="./functions/searchContact.js"></script>
-    <script src="app.js"></script>
   </body>
 </html>

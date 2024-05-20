@@ -1,6 +1,10 @@
+import { contacts, renderContactList } from '../contactUtils';
+
+const cancelDeleteModelButton = document.getElementById("cancelDeleteModal");
+const acceptDeleteModalButton = document.getElementById("acceptDeleteModal");
+
+let selectedContactId
 function openDeleteModal(contactId) {
-  console.log("dentro de la funcion borrar modal");
-  console.log(contacts);
   try {
     const contact = contacts.find((contact) => contact.id === contactId);
 
@@ -8,9 +12,8 @@ function openDeleteModal(contactId) {
       selectedContactId = contactId;
       deleteModal.style.display = "flex";
     } else {
-      console.log("No se encontró el contacto");
+      alert("No se encontró el contacto");
     }
-    console.log("abierto modal borrar");
   } catch (error) {
     console.error("Error al abrir modal de borrado: " + error.message);
   }
@@ -30,9 +33,14 @@ function deleteContact() {
       renderContactList();
       closeDeleteModal();
     } else {
-      console.log("No se encontró el contacto");
+      alert("No se encontró el contacto");
     }
   } catch {
     console.error("Error deleting contact:", error.message);
   }
 }
+
+cancelDeleteModelButton.addEventListener("click", closeDeleteModal);
+acceptDeleteModalButton.addEventListener("click", deleteContact);
+
+export { openDeleteModal, closeDeleteModal, deleteContact };
